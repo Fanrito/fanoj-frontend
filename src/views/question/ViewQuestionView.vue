@@ -194,12 +194,8 @@ const doSubmit = async () => {
     pollSubmitResult(submitId).then((result: any) => {
       console.log(result);
       visible.value = true;
-      if (result.judgeInfo.message === "Accepted") {
-        title.value = "通过";
-        judgeInfo.value = result.judgeInfo;
-      } else {
-        title.value = "未通过";
-      }
+      title.value = result.judgeInfo.message;
+      judgeInfo.value = result.judgeInfo;
     });
   } else {
     message.error("提交失败, " + res.message);
